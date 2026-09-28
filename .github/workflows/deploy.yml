@@ -19,3 +19,6 @@ jobs:
 
       - name: Ver memoria RAM do Runner
         run: lsb_release -a && free -h
+
+      - name: Ver memória da máquina
+        run: free -h
