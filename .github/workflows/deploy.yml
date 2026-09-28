@@ -1,0 +1,21 @@
+name: Continuos Integration
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  valida-codigo-estatica:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do codigo
+        uses: actions/checkout@v4
+
+      - name: Ver memoria RAM do Runner
+        run: lsb_release -a && free -h
