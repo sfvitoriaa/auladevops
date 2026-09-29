@@ -57,9 +57,6 @@ jobs:
       - name: Testa cowsay
         run: cowsay "Ferramenta instalada no deploy!"
 
-      - name: Teste de erro
-        run: comando_que_nao_existe
-
       - name: Upload do artefato
         uses: actions/upload-pages-artifact@v3
         with:
