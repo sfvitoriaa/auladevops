@@ -1,24 +1,37 @@
 name: Deploy do Meu Site
- 
-on: 
-  push: 
-    branches: 
-      - main 
-      - master 
-  pull_request: 
-    branches: 
-      - main 
- 
-jobs: 
-  publicar-site:
-    runs-on: ubuntu-latest 
- 
-    steps: 
-      - name: Checkout do codigo 
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  validacao:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do codigo
         uses: actions/checkout@v4
- 
-      - name: Ver memoria RAM do Runner 
-        run: lsb_release -a && free -h 
- 
-      - name: Ver memória da máquina 
+
+      - name: Ver memoria RAM do Runner
+        run: lsb_release -a && free -h
+
+      - name: Ver memória da máquina
         run: free -h
+
+      - name: Verifica se o index existe
+        run: test -f index.html
+
+  deploy:
+    needs: validacao
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy
+        run: echo "Fazendo deploy..."
