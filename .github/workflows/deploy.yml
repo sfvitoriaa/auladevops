@@ -27,9 +27,7 @@ jobs:
 
       - name: Verifica se o index existe
         run: test -f index.html
-      
-      - name: Teste de erro
-      run: comando_que_nao_existe
+    
 
   deploy:
     needs: validacao
