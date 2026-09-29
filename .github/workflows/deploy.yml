@@ -51,8 +51,11 @@ jobs:
       - name: Checkout do codigo
         uses: actions/checkout@v4
 
-      - name: Testa cowsay sem instalar
-        run: cowsay "Tentando usar a ferramenta"
+      - name: Instala cowsay
+        run: sudo apt-get update && sudo apt-get install -y cowsay
+
+      - name: Testa cowsay
+        run: cowsay "Ferramenta instalada no deploy!"
 
       - name: Upload do artefato
         uses: actions/upload-pages-artifact@v3
