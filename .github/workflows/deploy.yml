@@ -10,7 +10,7 @@ on:
       - main 
  
 jobs: 
-  valida-projeto: 
+  publicar-site:
     runs-on: ubuntu-latest 
  
     steps: 
