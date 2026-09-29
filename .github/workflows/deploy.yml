@@ -32,6 +32,17 @@ jobs:
         run: test -f index.html
 
 
+  instala-ferramenta:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Instala cowsay
+        run: sudo apt-get update && sudo apt-get install -y cowsay
+
+      - name: Testa cowsay
+        run: cowsay "Ferramenta instalada!"
+
+
   deploy:
     needs: validacao
     runs-on: ubuntu-latest
@@ -39,6 +50,9 @@ jobs:
     steps:
       - name: Checkout do codigo
         uses: actions/checkout@v4
+
+      - name: Testa cowsay sem instalar
+        run: cowsay "Tentando usar a ferramenta"
 
       - name: Upload do artefato
         uses: actions/upload-pages-artifact@v3
