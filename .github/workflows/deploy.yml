@@ -19,14 +19,18 @@ jobs:
       - name: Checkout do codigo
         uses: actions/checkout@v4
 
-      - name: Ver memoria RAM do Runner
-        run: lsb_release -a && free -h
+      - name: Explorando o Runner
+        run: lsb_release -a
 
-      - name: Ver memória da máquina
+      - name: Ver memoria RAM do Runner
         run: free -h
+
+      - name: Ver quantidade de CPUs
+        run: nproc
 
       - name: Verifica se o index existe
         run: test -f index.html
+
 
   deploy:
     needs: validacao
