@@ -39,4 +39,4 @@ jobs:
       - name: Upload do artefato
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: './pasta-que-nao-existe'
