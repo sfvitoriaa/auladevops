@@ -15,7 +15,7 @@ jobs:
  
     steps: 
       - name: Checkout do codigo 
-        #uses: actions/checkout@v4
+        uses: actions/checkout@v4
  
       - name: Ver memoria RAM do Runner 
         run: lsb_release -a && free -h 
